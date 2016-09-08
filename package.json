@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-daterangepicker",
+  "name": "bulma-daterangepicker",
   "version": "2.1.24",
-  "description": "Date range picker component for Bootstrap",
+  "description": "Date range picker component for Bulma",
   "main": "daterangepicker.js",
   "style": "daterangepicker.css",
   "scripts": {
@@ -10,23 +10,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dangrossman/bootstrap-daterangepicker.git"
+    "url": "https://github.com/gfpacheco/bulma-daterangepicker.git"
   },
   "author": {
-    "name": "Dan Grossman",
-    "email": "dan@dangrossman.info",
-    "url": "http://www.dangrossman.info"
+    "name": "Guilherme Pacheco",
+    "email": "guilherme.f.pacheco@gmail.com",
+    "url": "http://www.gfpacheco.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dangrossman/bootstrap-daterangepicker/issues"
+    "url": "https://github.com/gfpacheco/bulma-daterangepicker/issues"
   },
-  "homepage": "https://github.com/dangrossman/bootstrap-daterangepicker",
+  "homepage": "https://github.com/gfpacheco/bulma-daterangepicker",
   "dependencies": {
     "jquery": ">=1.10",
     "moment": "^2.9.0"
   },
+  "peerDependencies": {
+    "bulma": "^0.1.2"
+  },
   "devDependencies": {
+    "bulma": "^0.1.2",
     "node-sass": "^3.4.2"
   }
 }

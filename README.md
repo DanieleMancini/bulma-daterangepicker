@@ -1,29 +1,18 @@
-# Date Range Picker for Bootstrap
+# Date Range Picker for Bulma
 
-![Improvely.com](http://i.imgur.com/LbAMf3D.png)
+This is a fork of [dangrossman/bulma-daterangepicker](bulma-daterangepicker).
 
-This date range picker component for Bootstrap creates a dropdown menu from which a user can
-select a range of dates. I created it while building the UI for [Improvely](http://www.improvely.com), 
-which needed a way to select date ranges for reports.
+The only modifications are to use Bulma's elements and components instead of Bulma's ones.
+Use it the same way as described in [the docs](docs).
 
-Features include limiting the selectable date range, localizable strings and date formats,
-a single date picker mode, optional time picker (for e.g. making appointments or reservations),
-and styles that match the default Bootstrap 3 theme.
-
-## [Documentation and Live Usage Examples](http://www.daterangepicker.com)
-
-## [See It In a Live Application](https://awio.iljmp.com/5/drpdemogh)
+[bulma-daterangepicker]:https://github.com/dangrossman/bulma-daterangepicker
+[docs]:http://www.daterangepicker.com/
 
 ## License
 
-This code is made available under the same license as Bootstrap. Moment.js is included in this repository
-for convenience. It is available under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
-
---
-
 The MIT License (MIT)
 
-Copyright (c) 2012-2016 Dan Grossman
+Copyright (c) 2016 Guilherme Pacheco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
