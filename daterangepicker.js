@@ -77,6 +77,13 @@
             firstDay: moment.localeData().firstDayOfWeek()
         };
 
+        this.icons = {
+            calendar: '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>',
+            clock: '<i class="fa fa-clock-o glyphicon glyphicon-time"></i>',
+            arrowLeft: '<i class="fa fa-chevron-left glyphicon glyphicon-chevron-left"></i>',
+            arrowRight: '<i class="fa fa-chevron-right glyphicon glyphicon-chevron-right"></i>'
+        };
+
         this.callback = function() { };
 
         //some state information
@@ -92,16 +99,32 @@
         //data-api options will be overwritten with custom javascript options
         options = $.extend(this.element.data(), options);
 
+        if (typeof options.icons === 'object') {
+
+            if (typeof options.icons.calendar === 'string')
+                this.icons.calendar = options.icons.calendar;
+
+            if (typeof options.icons.clock === 'string')
+                this.icons.clock = options.icons.clock;
+
+            if (typeof options.icons.arrowLeft === 'string')
+                this.icons.arrowLeft = options.icons.arrowLeft;
+
+            if (typeof options.icons.arrowRight === 'string')
+                this.icons.arrowRight = options.icons.arrowRight;
+
+        }
+
         //html template for the picker UI
         if (typeof options.template !== 'string' && !(options.template instanceof $))
             options.template = '<div class="daterangepicker dropdown-menu box">' +
                 '<div class="calendar left">' +
                     '<div class="daterangepicker_input">' +
                       '<input class="input" type="text" name="daterangepicker_start" value="" />' +
-                      '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
+                      this.icons.calendar +
                       '<div class="calendar-time">' +
                         '<div></div>' +
-                        '<i class="fa fa-clock-o glyphicon glyphicon-time"></i>' +
+                        this.icons.clock +
                       '</div>' +
                     '</div>' +
                     '<div class="calendar-table"></div>' +
@@ -109,10 +132,10 @@
                 '<div class="calendar right">' +
                     '<div class="daterangepicker_input">' +
                       '<input class="input" type="text" name="daterangepicker_end" value="" />' +
-                      '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
+                      this.icons.calendar +
                       '<div class="calendar-time">' +
                         '<div></div>' +
-                        '<i class="fa fa-clock-o glyphicon glyphicon-time"></i>' +
+                        this.icons.clock +
                       '</div>' +
                     '</div>' +
                     '<div class="calendar-table"></div>' +
@@ -695,7 +718,7 @@
             var minDate = side == 'left' ? this.minDate : this.startDate;
             var maxDate = this.maxDate;
             var selected = side == 'left' ? this.startDate : this.endDate;
-            var arrow = this.locale.direction == 'ltr' ? {left: 'chevron-left', right: 'chevron-right'} : {left: 'chevron-right', right: 'chevron-left'};
+            var ltr = this.locale.direction == 'ltr';
 
             var html = '<table class="table is-narrow">';
             html += '<thead>';
@@ -706,7 +729,7 @@
                 html += '<th></th>';
 
             if ((!minDate || minDate.isBefore(calendar.firstDay)) && (!this.linkedCalendars || side == 'left')) {
-                html += '<th class="prev available"><i class="fa fa-' + arrow.left + ' glyphicon glyphicon-' + arrow.left + '"></i></th>';
+                html += '<th class="prev available">' + (ltr ? this.icons.arrowLeft : this.icons.arrowRight) + '</th>';
             } else {
                 html += '<th></th>';
             }
@@ -748,7 +771,7 @@
 
             html += '<th colspan="5" class="month">' + dateHtml + '</th>';
             if ((!maxDate || maxDate.isAfter(calendar.lastDay)) && (!this.linkedCalendars || side == 'right' || this.singleDatePicker)) {
-                html += '<th class="next available"><i class="fa fa-' + arrow.right + ' glyphicon glyphicon-' + arrow.right + '"></i></th>';
+                html += '<th class="next available">' + (ltr ? this.icons.arrowRight : this.icons.arrowLeft) + '</th>';
             } else {
                 html += '<th></th>';
             }

@@ -75,6 +75,8 @@
     line-height: 24px; }
   .daterangepicker th.prev i, .daterangepicker th.next i {
     line-height: 24px; }
+    .daterangepicker th.prev i.material-icons, .daterangepicker th.next i.material-icons {
+      display: block; }
   .daterangepicker td.is-disabled, .daterangepicker option.is-disabled {
     color: #999;
     cursor: not-allowed;
@@ -95,6 +97,8 @@
       position: absolute;
       left: 8px;
       top: 8px; }
+      .daterangepicker .daterangepicker_input i.material-icons {
+        font-size: 16px; }
   .daterangepicker.rtl .daterangepicker_input input {
     padding: 1px 26px 1px 8px; }
   .daterangepicker.rtl .daterangepicker_input i {
@@ -105,6 +109,8 @@
     margin: 5px auto;
     position: relative;
     padding-left: 28px; }
+    .daterangepicker .calendar-time .material-icons {
+      top: 4px; }
 
 .ranges {
   font-size: 11px;

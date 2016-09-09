@@ -5,6 +5,7 @@
     <title>A date range picker for Bulma</title>
     <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="daterangepicker.css"/>
     <style type="text/css">
       .demo {
@@ -55,6 +56,13 @@
               <div class="control">
                 <label class="label" for="maxDate">maxDate</label>
                 <input type="text" class="input" id="maxDate" value="" placeholder="MM/DD/YYYY">
+              </div>
+
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" id="materialIcons">
+                  material icons (with example icons)
+                </label>
               </div>
 
             </div>
@@ -272,6 +280,14 @@
 
         function updateConfig() {
           var options = {};
+
+          if ($('#materialIcons').is(':checked'))
+            options.icons = {
+              calendar: '<i class="material-icons">&#xE916;</i>',
+              clock: '<i class="material-icons">&#xE8B5;</i>',
+              arrowLeft: '<i class="material-icons">&#xE314;</i>',
+              arrowRight: '<i class="material-icons">&#xE315;</i>'
+            };
 
           if ($('#singleDatePicker').is(':checked'))
             options.singleDatePicker = true;
