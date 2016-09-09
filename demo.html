@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8"/>
     <title>A date range picker for Bulma</title>
-    <link href="node_modules/bulma/css/bulma.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="daterangepicker.css"/>
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="daterangepicker.css"/>
     <style type="text/css">
       .demo {
         position: relative;
@@ -12,7 +13,7 @@
       .demo i {
         position: absolute;
         bottom: 10px;
-        right: 24px;
+        right: 10px;
         top: auto;
         cursor: pointer;
       }
@@ -22,190 +23,194 @@
 
     <div class="container">
 
-      <h1 style="margin: 0 0 20px 0">Configuration Builder</h1>
+      <h1 class="title">Configuration Builder</h1>
 
-      <div class="well configurator">
+      <div class="box configurator">
 
         <form>
-          <div class="row">
+          <div class="columns">
 
-            <div class="col-md-4">
+            <div class="column is-4">
 
-              <div class="form-group">
-                <label for="parentEl">parentEl</label>
-                <input type="text" class="form-control" id="parentEl" value="" placeholder="body">
+              <div class="control">
+                <label class="label" for="parentEl">parentEl</label>
+                <input type="text" class="input" id="parentEl" value="" placeholder="body">
               </div>
 
-              <div class="form-group">
-                <label for="startDate">startDate</label>
-                <input type="text" class="form-control" id="startDate" value="07/01/2015">
+              <div class="control">
+                <label class="label" for="startDate">startDate</label>
+                <input type="text" class="input" id="startDate" value="07/01/2015">
               </div>
 
-              <div class="form-group">
-                <label for="endDate">endDate</label>
-                <input type="text" class="form-control" id="endDate" value="07/15/2015">
+              <div class="control">
+                <label class="label" for="endDate">endDate</label>
+                <input type="text" class="input" id="endDate" value="07/15/2015">
               </div>
 
-              <div class="form-group">
-                <label for="minDate">minDate</label>
-                <input type="text" class="form-control" id="minDate" value="" placeholder="MM/DD/YYYY">
+              <div class="control">
+                <label class="label" for="minDate">minDate</label>
+                <input type="text" class="input" id="minDate" value="" placeholder="MM/DD/YYYY">
               </div>
 
-              <div class="form-group">
-                <label for="maxDate">maxDate</label>
-                <input type="text" class="form-control" id="maxDate" value="" placeholder="MM/DD/YYYY">
+              <div class="control">
+                <label class="label" for="maxDate">maxDate</label>
+                <input type="text" class="input" id="maxDate" value="" placeholder="MM/DD/YYYY">
               </div>
 
             </div>
-            <div class="col-md-4">
+            <div class="column is-4">
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="autoApply">
                   autoApply
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="singleDatePicker">
                   singleDatePicker
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="showDropdowns">
                   showDropdowns
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="showWeekNumbers">
                   showWeekNumbers
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="showISOWeekNumbers">
                   showISOWeekNumbers
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="timePicker">
                   timePicker
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="timePicker24Hour">
                   timePicker24Hour
                 </label>
               </div>
 
-              <div class="form-group">
-                <label for="timePickerIncrement">timePickerIncrement (in minutes)</label>
-                <input type="text" class="form-control" id="timePickerIncrement" value="1">
+              <div class="control">
+                <label class="label" for="timePickerIncrement">timePickerIncrement (in minutes)</label>
+                <input type="text" class="input" id="timePickerIncrement" value="1">
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="timePickerSeconds">
                   timePickerSeconds
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="dateLimit">
                   dateLimit (with example date range span)
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="ranges">
                   ranges (with example predefined ranges)
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="locale">
                   locale (with example settings)
                 </label>
-                <label id="rtl-wrap">
+                <label id="rtl-wrap" class="checkbox">
                   <input type="checkbox" id="rtl">
                   RTL (right-to-left)
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="alwaysShowCalendars">
                   alwaysShowCalendars
                 </label>
               </div>
 
             </div>
-            <div class="col-md-4">
+            <div class="column is-4">
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="linkedCalendars" checked="checked">
                   linkedCalendars
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="autoUpdateInput" checked="checked">
                   autoUpdateInput
                 </label>
               </div>
 
-              <div class="checkbox">
-                <label>
+              <div class="control">
+                <label class="checkbox">
                   <input type="checkbox" id="showCustomRangeLabel" checked="checked">
                   showCustomRangeLabel
                 </label>
               </div>
 
-              <div class="form-group">
-                <label for="opens">opens</label>
-                <select id="opens" class="form-control">
-                  <option value="right" selected>right</option>
-                  <option value="left">left</option>
-                  <option value="center">center</option>
-                </select>
+              <div class="control">
+                <label class="label" for="opens">opens</label>
+                <span class="select">
+                  <select id="opens">
+                    <option value="right" selected>right</option>
+                    <option value="left">left</option>
+                    <option value="center">center</option>
+                  </select>
+                </span>
               </div>
 
-              <div class="form-group">
-                <label for="drops">drops</label>
-                <select id="drops" class="form-control">
-                  <option value="down" selected>down</option>
-                  <option value="up">up</option>
-                </select>
+              <div class="control">
+                <label class="label" for="drops">drops</label>
+                <span class="select">
+                  <select id="drops">
+                    <option value="down" selected>down</option>
+                    <option value="up">up</option>
+                  </select>
+                </span>
               </div>
 
-              <div class="form-group">
-                <label for="buttonClasses">buttonClasses</label>
-                <input type="text" class="form-control" id="buttonClasses" value="btn btn-sm">
+              <div class="control">
+                <label class="label" for="buttonClasses">buttonClasses</label>
+                <input type="text" class="input" id="buttonClasses" value="btn btn-sm">
               </div>
 
-              <div class="form-group">
-                <label for="applyClass">applyClass</label>
-                <input type="text" class="form-control" id="applyClass" value="btn-success">
+              <div class="control">
+                <label class="label" for="applyClass">applyClass</label>
+                <input type="text" class="input" id="applyClass" value="btn-success">
               </div>
 
-              <div class="form-group">
-                <label for="cancelClass">cancelClass</label>
-                <input type="text" class="form-control" id="cancelClass" value="btn-default">
+              <div class="control">
+                <label class="label" for="cancelClass">cancelClass</label>
+                <input type="text" class="input" id="cancelClass" value="btn-default">
               </div>
 
             </div>
@@ -215,18 +220,20 @@
 
       </div>
 
-      <div class="row">
+      <div class="columns">
 
-        <div class="col-md-4 col-md-offset-2 demo">
+        <div class="column is-4 is-offset-2 demo">
           <h4>Your Date Range Picker</h4>
-          <input type="text" id="config-demo" class="form-control">
-          <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+          <div class="control">
+            <input type="text" id="config-demo" class="input">
+            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+          </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="column is-6">
           <h4>Configuration</h4>
 
-          <div class="well">
+          <div class="box">
             <textarea id="config-text" style="height: 300px; width: 100%; padding: 10px"></textarea>
           </div>
         </div>
@@ -409,7 +416,7 @@
           if ($('#cancelClass').val().length && $('#cancelClass').val() != 'btn-default')
             options.cancelClass = $('#cancelClass').val();
 
-          $('#config-text').val("$('#demo').daterangepicker(" + JSON.stringify(options, null, '    ') + ", function(start, end, label) {\n  console.log(\"New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')\");\n});");
+          $('#config-text').val("$('#config-demo').daterangepicker(" + JSON.stringify(options, null, '    ') + ", function(start, end, label) {\n  console.log(\"New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')\");\n});");
 
           $('#config-demo').daterangepicker(options, function(start, end, label) {
             console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
