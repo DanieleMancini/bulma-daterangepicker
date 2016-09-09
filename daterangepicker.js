@@ -49,6 +49,7 @@
         this.linkedCalendars = true;
         this.autoUpdateInput = true;
         this.alwaysShowCalendars = false;
+        this.margin = 10;
         this.ranges = {};
 
         this.opens = 'right';
@@ -59,9 +60,9 @@
         if (this.element.hasClass('dropup'))
             this.drops = 'up';
 
-        this.buttonClasses = 'btn btn-sm';
-        this.applyClass = 'btn-success';
-        this.cancelClass = 'btn-default';
+        this.buttonClasses = 'button';
+        this.applyClass = 'is-success';
+        this.cancelClass = '';
 
         this.locale = {
             direction: 'ltr',
@@ -93,10 +94,10 @@
 
         //html template for the picker UI
         if (typeof options.template !== 'string' && !(options.template instanceof $))
-            options.template = '<div class="daterangepicker dropdown-menu">' +
+            options.template = '<div class="daterangepicker dropdown-menu box">' +
                 '<div class="calendar left">' +
                     '<div class="daterangepicker_input">' +
-                      '<input class="input-mini form-control" type="text" name="daterangepicker_start" value="" />' +
+                      '<input class="input" type="text" name="daterangepicker_start" value="" />' +
                       '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
                       '<div class="calendar-time">' +
                         '<div></div>' +
@@ -107,7 +108,7 @@
                 '</div>' +
                 '<div class="calendar right">' +
                     '<div class="daterangepicker_input">' +
-                      '<input class="input-mini form-control" type="text" name="daterangepicker_end" value="" />' +
+                      '<input class="input" type="text" name="daterangepicker_end" value="" />' +
                       '<i class="fa fa-calendar glyphicon glyphicon-calendar"></i>' +
                       '<div class="calendar-time">' +
                         '<div></div>' +
@@ -266,6 +267,9 @@
 
         if (typeof options.alwaysShowCalendars === 'boolean')
             this.alwaysShowCalendars = options.alwaysShowCalendars;
+
+        if (typeof options.margin === 'number')
+            this.margin = options.margin;
 
         // update day names order to firstDay
         if (this.locale.firstDay != 0) {
@@ -693,7 +697,7 @@
             var selected = side == 'left' ? this.startDate : this.endDate;
             var arrow = this.locale.direction == 'ltr' ? {left: 'chevron-left', right: 'chevron-right'} : {left: 'chevron-right', right: 'chevron-left'};
 
-            var html = '<table class="table-condensed">';
+            var html = '<table class="table is-narrow">';
             html += '<thead>';
             html += '<tr>';
 
@@ -717,7 +721,7 @@
                 var inMinYear = currentYear == minYear;
                 var inMaxYear = currentYear == maxYear;
 
-                var monthHtml = '<select class="monthselect">';
+                var monthHtml = '<span class="monthselectspan select is-small is-fullwidth"><select class="monthselect">';
                 for (var m = 0; m < 12; m++) {
                     if ((!inMinYear || m >= minDate.month()) && (!inMaxYear || m <= maxDate.month())) {
                         monthHtml += "<option value='" + m + "'" +
@@ -729,15 +733,15 @@
                             " disabled='disabled'>" + this.locale.monthNames[m] + "</option>";
                     }
                 }
-                monthHtml += "</select>";
+                monthHtml += "</select></span>";
 
-                var yearHtml = '<select class="yearselect">';
+                var yearHtml = '<span class="yearselectspan select is-small is-fullwidth"><select class="yearselect">';
                 for (var y = minYear; y <= maxYear; y++) {
                     yearHtml += '<option value="' + y + '"' +
                         (y === currentYear ? ' selected="selected"' : '') +
                         '>' + y + '</option>';
                 }
-                yearHtml += '</select>';
+                yearHtml += '</select></span>';
 
                 dateHtml = monthHtml + yearHtml;
             }
@@ -800,15 +804,15 @@
 
                     //don't allow selection of dates before the minimum date
                     if (this.minDate && calendar[row][col].isBefore(this.minDate, 'day'))
-                        classes.push('off', 'disabled');
+                        classes.push('off', 'is-disabled');
 
                     //don't allow selection of dates after the maximum date
                     if (maxDate && calendar[row][col].isAfter(maxDate, 'day'))
-                        classes.push('off', 'disabled');
+                        classes.push('off', 'is-disabled');
 
                     //don't allow selection of date if a custom function decides it's invalid
                     if (this.isInvalidDate(calendar[row][col]))
-                        classes.push('off', 'disabled');
+                        classes.push('off', 'is-disabled');
 
                     //highlight the currently selected start date
                     if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD'))
@@ -834,7 +838,7 @@
                     var cname = '', disabled = false;
                     for (var i = 0; i < classes.length; i++) {
                         cname += classes[i] + ' ';
-                        if (classes[i] == 'disabled')
+                        if (classes[i] == 'is-disabled')
                             disabled = true;
                     }
                     if (!disabled)
@@ -901,7 +905,7 @@
             // hours
             //
 
-            html = '<select class="hourselect">';
+            html = '<span class="hourselectspan select is-small"><select class="hourselect">';
 
             var start = this.timePicker24Hour ? 0 : 1;
             var end = this.timePicker24Hour ? 23 : 12;
@@ -921,19 +925,19 @@
                 if (i_in_24 == selected.hour() && !disabled) {
                     html += '<option value="' + i + '" selected="selected">' + i + '</option>';
                 } else if (disabled) {
-                    html += '<option value="' + i + '" disabled="disabled" class="disabled">' + i + '</option>';
+                    html += '<option value="' + i + '" disabled="disabled" class="is-disabled">' + i + '</option>';
                 } else {
                     html += '<option value="' + i + '">' + i + '</option>';
                 }
             }
 
-            html += '</select> ';
+            html += '</select></span> ';
 
             //
             // minutes
             //
 
-            html += ': <select class="minuteselect">';
+            html += ': <span class="minuteselectspan select is-small"><select class="minuteselect">';
 
             for (var i = 0; i < 60; i += this.timePickerIncrement) {
                 var padded = i < 10 ? '0' + i : i;
@@ -948,20 +952,20 @@
                 if (selected.minute() == i && !disabled) {
                     html += '<option value="' + i + '" selected="selected">' + padded + '</option>';
                 } else if (disabled) {
-                    html += '<option value="' + i + '" disabled="disabled" class="disabled">' + padded + '</option>';
+                    html += '<option value="' + i + '" disabled="disabled" class="is-disabled">' + padded + '</option>';
                 } else {
                     html += '<option value="' + i + '">' + padded + '</option>';
                 }
             }
 
-            html += '</select> ';
+            html += '</select></span> ';
 
             //
             // seconds
             //
 
             if (this.timePickerSeconds) {
-                html += ': <select class="secondselect">';
+                html += ': <span class="secondselectspan select is-small"><select class="secondselect">';
 
                 for (var i = 0; i < 60; i++) {
                     var padded = i < 10 ? '0' + i : i;
@@ -976,13 +980,13 @@
                     if (selected.second() == i && !disabled) {
                         html += '<option value="' + i + '" selected="selected">' + padded + '</option>';
                     } else if (disabled) {
-                        html += '<option value="' + i + '" disabled="disabled" class="disabled">' + padded + '</option>';
+                        html += '<option value="' + i + '" disabled="disabled" class="is-disabled">' + padded + '</option>';
                     } else {
                         html += '<option value="' + i + '">' + padded + '</option>';
                     }
                 }
 
-                html += '</select> ';
+                html += '</select></span> ';
             }
 
             //
@@ -990,16 +994,16 @@
             //
 
             if (!this.timePicker24Hour) {
-                html += '<select class="ampmselect">';
+                html += '<span class="ampmselectspan select is-small"><select class="ampmselect">';
 
                 var am_html = '';
                 var pm_html = '';
 
                 if (minDate && selected.clone().hour(12).minute(0).second(0).isBefore(minDate))
-                    am_html = ' disabled="disabled" class="disabled"';
+                    am_html = ' disabled="disabled" class="is-disabled"';
 
                 if (maxDate && selected.clone().hour(0).minute(0).second(0).isAfter(maxDate))
-                    pm_html = ' disabled="disabled" class="disabled"';
+                    pm_html = ' disabled="disabled" class="is-disabled"';
 
                 if (selected.hour() >= 12) {
                     html += '<option value="AM"' + am_html + '>AM</option><option value="PM" selected="selected"' + pm_html + '>PM</option>';
@@ -1007,7 +1011,7 @@
                     html += '<option value="AM" selected="selected"' + am_html + '>AM</option><option value="PM"' + pm_html + '>PM</option>';
                 }
 
-                html += '</select>';
+                html += '</select></span>';
             }
 
             this.container.find('.calendar.' + side + ' .calendar-time div').html(html);
@@ -1045,9 +1049,9 @@
             }
 
             if (this.drops == 'up')
-                containerTop = this.element.offset().top - this.container.outerHeight() - parentOffset.top;
+                containerTop = this.element.offset().top - this.container.outerHeight() - parentOffset.top - this.margin;
             else
-                containerTop = this.element.offset().top + this.element.outerHeight() - parentOffset.top;
+                containerTop = this.element.offset().top + this.element.outerHeight() - parentOffset.top + this.margin;
             this.container[this.drops == 'up' ? 'addClass' : 'removeClass']('dropup');
 
             if (this.opens == 'left') {
@@ -1217,6 +1221,7 @@
         },
 
         clickPrev: function(e) {
+            e.stopPropagation();
             var cal = $(e.target).parents('.calendar');
             if (cal.hasClass('left')) {
                 this.leftCalendar.month.subtract(1, 'month');
@@ -1229,6 +1234,7 @@
         },
 
         clickNext: function(e) {
+            e.stopPropagation();
             var cal = $(e.target).parents('.calendar');
             if (cal.hasClass('left')) {
                 this.leftCalendar.month.add(1, 'month');

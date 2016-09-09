@@ -200,17 +200,17 @@
 
               <div class="control">
                 <label class="label" for="buttonClasses">buttonClasses</label>
-                <input type="text" class="input" id="buttonClasses" value="btn btn-sm">
+                <input type="text" class="input" id="buttonClasses" value="button">
               </div>
 
               <div class="control">
                 <label class="label" for="applyClass">applyClass</label>
-                <input type="text" class="input" id="applyClass" value="btn-success">
+                <input type="text" class="input" id="applyClass" value="is-success">
               </div>
 
               <div class="control">
                 <label class="label" for="cancelClass">cancelClass</label>
-                <input type="text" class="input" id="cancelClass" value="btn-default">
+                <input type="text" class="input" id="cancelClass" value="">
               </div>
 
             </div>
@@ -407,13 +407,13 @@
           if ($('#drops').val().length && $('#drops').val() != 'down')
             options.drops = $('#drops').val();
 
-          if ($('#buttonClasses').val().length && $('#buttonClasses').val() != 'btn btn-sm')
+          if ($('#buttonClasses').val().length && $('#buttonClasses').val() != 'button')
             options.buttonClasses = $('#buttonClasses').val();
 
-          if ($('#applyClass').val().length && $('#applyClass').val() != 'btn-success')
+          if ($('#applyClass').val().length && $('#applyClass').val() != 'is-success')
             options.applyClass = $('#applyClass').val();
 
-          if ($('#cancelClass').val().length && $('#cancelClass').val() != 'btn-default')
+          if ($('#cancelClass').val().length && $('#cancelClass').val() != '')
             options.cancelClass = $('#cancelClass').val();
 
           $('#config-text').val("$('#config-demo').daterangepicker(" + JSON.stringify(options, null, '    ') + ", function(start, end, label) {\n  console.log(\"New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')\");\n});");
