@@ -1,5 +1,6 @@
 {
   "name": "bulma-daterangepicker",
+  "version": "2.2.0",
   "main": [
     "daterangepicker.js",
     "daterangepicker.css"
