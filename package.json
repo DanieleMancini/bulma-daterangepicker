@@ -1,6 +1,6 @@
 {
   "name": "bulma-daterangepicker",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Date range picker component for Bulma",
   "main": "daterangepicker.js",
   "style": "daterangepicker.css",
