@@ -129,6 +129,7 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
   }
 
   &.dropdown-menu {
+    display: none;
     z-index: $daterangepicker-dropdown-z-index;
   }
 
