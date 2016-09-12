@@ -93,15 +93,16 @@
   .daterangepicker .daterangepicker_input {
     position: relative; }
     .daterangepicker .daterangepicker_input input {
-      padding: 1px 8px 1px 26px; }
+      padding: 1px 8px 1px 30px; }
     .daterangepicker .daterangepicker_input i {
       position: absolute;
-      left: 8px;
+      left: 10px;
       top: 8px; }
       .daterangepicker .daterangepicker_input i.material-icons {
+        left: 9px;
         font-size: 16px; }
   .daterangepicker.rtl .daterangepicker_input input {
-    padding: 1px 26px 1px 8px; }
+    padding: 1px 30px 1px 8px; }
   .daterangepicker.rtl .daterangepicker_input i {
     left: auto;
     right: 8px; }
@@ -109,7 +110,7 @@
     text-align: center;
     margin: 5px auto;
     position: relative;
-    padding-left: 28px; }
+    padding-left: 30px; }
     .daterangepicker .calendar-time .material-icons {
       top: 4px; }
 

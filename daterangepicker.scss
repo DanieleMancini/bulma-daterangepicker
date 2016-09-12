@@ -297,17 +297,18 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
     position: relative;
 
     input {
-      padding: 1px 8px 1px 26px;
+      padding: 1px 8px 1px 30px;
     }
 
     i {
       position: absolute;
 
       // NOTE: These appear to be eyeballed to me...
-      left: 8px;
+      left: 10px;
       top: 8px;
 
       &.material-icons {
+        left: 9px;
         font-size: 16px;
       }
     }
@@ -315,7 +316,7 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
   &.rtl {
     .daterangepicker_input {
       input {
-        padding: 1px 26px 1px 8px;
+        padding: 1px 30px 1px 8px;
       }
 
       i {
@@ -332,7 +333,7 @@ $daterangepicker-ranges-active-border-radius: $daterangepicker-border-radius !de
     text-align: center;
     margin: 5px auto;
     position: relative;
-    padding-left: 28px;
+    padding-left: 30px;
 
     .material-icons {
       top: 4px;
