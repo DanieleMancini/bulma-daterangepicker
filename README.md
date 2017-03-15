@@ -1,11 +1,11 @@
 # Date Range Picker for Bulma
 
-This is a fork of [dangrossman/bulma-daterangepicker](bulma-daterangepicker).
+This is a fork of [dangrossman/bootstrap-daterangepicker][bootstrap-daterangepicker].
 
-The only modifications are to use Bulma's elements and components instead of Bulma's ones.
-Use it the same way as described in [the docs](docs).
+The only modifications are to use Bulma's elements and components instead of Bootstrap's ones.
+Use it the same way as described in [the docs][docs].
 
-[bulma-daterangepicker]:https://github.com/dangrossman/bulma-daterangepicker
+[bootstrap-daterangepicker]:https://github.com/dangrossman/bootstrap-daterangepicker
 [docs]:http://www.daterangepicker.com/
 
 ## License
