@@ -140,11 +140,11 @@
                     '</div>' +
                     '<div class="calendar-table"></div>' +
                 '</div>' +
+                '<div class="range_inputs">' +
+                  '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
+                  '<button class="cancelBtn" type="button"></button>' +
+                '</div>' +
                 '<div class="ranges">' +
-                    '<div class="range_inputs">' +
-                        '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
-                        '<button class="cancelBtn" type="button"></button>' +
-                    '</div>' +
                 '</div>' +
             '</div>';
 
@@ -444,6 +444,10 @@
             .on('focus.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsFocused, this))
             .on('blur.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsBlurred, this))
             .on('change.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsChanged, this));
+
+        this.container.find('.range_inputs')
+            .on('click.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
+            .on('click.daterangepicker', 'button.cancelBtn', $.proxy(this.clickCancel, this))
 
         this.container.find('.ranges')
             .on('click.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
