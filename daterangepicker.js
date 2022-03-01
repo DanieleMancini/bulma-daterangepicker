@@ -118,6 +118,7 @@
         //html template for the picker UI
         if (typeof options.template !== 'string' && !(options.template instanceof $))
             options.template = '<div class="daterangepicker dropdown-menu box">' +
+                '<div class="ranges"></div>' +
                 '<div class="calendar left">' +
                     '<div class="daterangepicker_input">' +
                       '<input class="input" type="text" name="daterangepicker_start" value="" />' +
@@ -144,7 +145,6 @@
                   '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
                   '<button class="cancelBtn" type="button"></button>' +
                 '</div>' +
-                '<div class="ranges"></div>' +
             '</div>';
 
         this.parentEl = (options.parentEl && $(options.parentEl).length) ? $(options.parentEl) : $(this.parentEl);
