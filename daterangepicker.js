@@ -926,7 +926,7 @@
             // hours
             //
 
-            html = '<span class="hourselectspan select is-small"><select class="hourselect">';
+            html = '<span class="hourselectspan select is-small"><select class="hourselect p-none">';
 
             var start = this.timePicker24Hour ? 0 : 1;
             var end = this.timePicker24Hour ? 23 : 12;
@@ -958,7 +958,7 @@
             // minutes
             //
 
-            html += ': <span class="minuteselectspan select is-small"><select class="minuteselect">';
+            html += ': <span class="minuteselectspan select is-small"><select class="minuteselect p-none">';
 
             for (var i = 0; i < 60; i += this.timePickerIncrement) {
                 var padded = i < 10 ? '0' + i : i;
