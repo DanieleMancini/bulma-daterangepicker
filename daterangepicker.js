@@ -144,8 +144,7 @@
                   '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
                   '<button class="cancelBtn" type="button"></button>' +
                 '</div>' +
-                '<div class="ranges">' +
-                '</div>' +
+                '<div class="ranges"></div>' +
             '</div>';
 
         this.parentEl = (options.parentEl && $(options.parentEl).length) ? $(options.parentEl) : $(this.parentEl);
